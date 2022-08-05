@@ -3,6 +3,7 @@
 ###
 
 # Prototypes
+from re import I
 import pandas as pd
 
 # Site URL
@@ -18,10 +19,19 @@ teens  = html_cross[4]
 
 # create DataFrame
 
-df1 = pd.DataFrame(championsByYear)
-
-print(df1)
 # Exporting to csv file
 
-df1.to_csv(r'cross_recentData.csv', index = False)
+list = []
+
+for i in html_cross:
+    df = html_cross.index(i)
+    df.append(list)
+
+print(len(list)) 
+
+#    df1 = pd.DataFrame(df)
+    
+ #   name_url = "cross_{}".format(table)
+    
+  #  df1.to_csv(name_url + ".csv", index = False)
 
