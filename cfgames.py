@@ -3,13 +3,16 @@
 ###
 
 # Prototypes
-from re import I
 import pandas as pd
 
 # Site URL
 url = 'https://en.wikipedia.org/wiki/CrossFit_Games'
 
+# list of scrapped tables
+
 html_cross = pd.read_html(url)
+
+# Getting each table
 
 recentData = html_cross[0]
 championsByYear = html_cross[1]
@@ -17,21 +20,27 @@ mastersMens = html_cross[2]
 mastersWeman = html_cross[3]
 teens  = html_cross[4]
 
-# create DataFrame
+    # Create and export do csv - DataFrame 1
 
-# Exporting to csv file
+df1 = pd.DataFrame(recentData)
+df1.to_csv(r'recentData.csv', index = False)
 
-list = []
+    # Create and export do csv - DataFrame 1
 
-for i in html_cross:
-    df = html_cross.index(i)
-    df.append(list)
+df2 = pd.DataFrame(championsByYear)
+df2.to_csv(r'championsByYear.csv', index = False)
 
-print(len(list)) 
+    # Create and export do csv - DataFrame 1
 
-#    df1 = pd.DataFrame(df)
-    
- #   name_url = "cross_{}".format(table)
-    
-  #  df1.to_csv(name_url + ".csv", index = False)
+df3 = pd.DataFrame(mastersMens)
+df3.to_csv(r'mastersMens.csv', index = False)
 
+    # Create and export do csv - DataFrame 1
+
+df4 = pd.DataFrame(mastersWeman)
+df4.to_csv(r'mastersWeman.csv', index = False)
+
+    # Create and export do csv - DataFrame 1
+
+df1 = pd.DataFrame(teens)
+df1.to_csv(r'teens.csv', index = False)
